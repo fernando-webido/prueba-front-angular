@@ -1,0 +1,99 @@
+
+<div class="row no-gutters">
+  <div class="col-md-2 dark"></div>
+  <div class="col-md-10 top-bar">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+            <h1>Prueba Frontend</h1>
+        </div>
+        <div class="col">
+
+        </div>
+      </div>
+    </div>  
+  </div>
+  <div class="col-md-2">
+    <div class="side-bar">
+      <div class="profile-card">
+        <picture>
+            <img src="https://picsum.photos/300" alt="" class="img-fluid">
+        </picture>
+        <div class="name">Fernando Uribe</div>
+        <p class="sub-name">Frontend-Developer</p>
+      </div>
+    </div> 
+  </div>
+  <div class="col-md-10">
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card mt-4">
+                  <div class="card-body">
+                    <div class="card-title">
+                      Insert a new employed
+                    </div>
+                    <div class="row justify-content-start">
+                      <div class="form-group col-md-6">
+                        <label for="">Name:</label>
+                        <input type="text" placeholder="Insert Name" [(ngModel)]="selectedEmployee.name" class="form-control" name="" id="">
+                      </div>
+                      <div class="form-group col-md-3">
+                          <label for="">Country:</label>
+                          <input type="text" placeholder="Insert a country" [(ngModel)]="selectedEmployee.country" class="form-control" name="" id="">
+                      </div>
+                      <div class="form-group col-md-3">
+                          <label for="">Title:</label>
+                          <input type="text" placeholder="Insert a title" [(ngModel)]="selectedEmployee.title" class="form-control" name="" id="">
+                      </div>
+                      <div *ngIf="selectedEmployee.id !== 0" class="form-group col-md-8">
+                          <label for="">Add Responsabilities</label>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <input type="text" placeholder="Insert a Responsabilities" [(ngModel)]="addResp" class="form-control" name="" id="">
+                            </div>
+                            <div class="col-md-2">
+                                <span (click)="addRespon()" class="btn btn-success">+ Add</span>
+                            </div>
+                        </div>
+                      </div> 
+                    </div>
+                    <button (click)="addOrEdit()" class="btn-primary btn">Submit</button>
+                    <button *ngIf="selectedEmployee.id !== 0" class="btn btn-danger ml-4" (click)="delete()" >Delete</button>
+                  </div>
+                </div>
+            </div>
+            <div class="col-md-12 mt-4">
+              <table class="table table-bordered table-striped table-hover">
+                <thead class="thead-dark">
+                  <tr>
+                    <th scope="col"> id </th>
+                    <th scope="col"> Name </th>
+                    <th scope="col"> Country </th>
+                    <th scope="col">Title </th>
+                  </tr>
+                </thead>
+                <tbody *ngFor="let employee of employeeArray; index as i"  
+                (click) = "openForEdit(employee)"
+                [class.table-primary]="employee == selectedEmployee">
+                    <tr>
+                      <td>{{ employee.id }}</td>
+                      <td>{{ employee.name }}</td>
+                      <td>{{ employee.country }}</td>
+                      <td>{{ employee.title }}</td>
+                    </tr>
+                    <tr class="gray">
+                      <td colspan="4">
+                        <strong>Responsabilities:</strong>
+                        <div class="row justify-content-start">
+                          <div class="col-1" *ngFor="let resp of employee.respo">{{ resp }} </div>
+                        </div>
+                      </td>
+                    </tr>
+                </tbody>
+              </table>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>

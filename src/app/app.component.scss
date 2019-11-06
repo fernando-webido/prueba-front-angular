@@ -1,0 +1,39 @@
+.side-bar{
+    background-color:#666;
+    width: 100%;
+    height: 100vh;
+    min-height: 100%;
+    display: block;
+    border-top: 10px solid #232323;
+    .profile-card{
+        width: 90%;
+        margin: 1em auto;
+        color: white;
+        p{
+            color: white;
+        }
+        .name{
+            font-size: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 1em;
+            text-align: center;
+        }
+        .sub-name{
+            color: rgba($color: #ffffff, $alpha: .7);
+            font-weight: 100;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-align: center;
+            font-size: 12px;
+        }
+        picture{
+            overflow: hidden;
+            border-radius: 50%;
+            display: block;
+        }
+    }
+}
+.top-bar{
+    background-color: #cdcdcd;
+}
