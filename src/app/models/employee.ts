@@ -6,6 +6,6 @@ export class Employee {
     respo: string [];
 }
 export class Responsa {
-    id: number = 0;
+    id = 0;
     resp: string;
 }
